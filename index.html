@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo List</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="container">
+  <h1>Emma's List</h1>
+
+  <form>
+    <input type="text" id="item" placeholder="Add An Item!">
+    <input type="submit" value="Add">
+  </form>
+</div>
+
+<div id="main-container" class="container">
+  <div id="todolist">
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script type="text/javascript">
+  var list = JSON.parse(localStorage.getItem('todolist'));
+  if (!Array.isArray(list)){
+    list = [];
+  }
+
+  function putOnPage(){
+    
+    $('#todolist').empty(); //empties out the html
+
+    var insideList = JSON.parse(localStorage.getItem('todolist'));
+    if (!Array.isArray(insideList)){
+      insideList = [];
+    }
+
+    for (var i=0; i<insideList.length; i++){
+      var p = $('<p>').text(insideList[i]);
+      var b = $('<button>').text('x').attr('data-index', i);
+      p.prepend(b);
+      $('#todolist').prepend(p);
+    }
+  }
+
+  putOnPage();
+
+  $(document).on('click', 'button', function(){
+    var todolist = JSON.parse(localStorage.getItem('todolist'));
+    var currentIndex = $(this).data('index'); 
+    todolist.splice(currentIndex, 1); //deletes the item that I clicked on to delete
+    list = todolist;
+
+    localStorage.setItem('todolist', JSON.stringify(todolist));
+
+    $(this).parent().remove();
+  });
+
+  $("input[type='submit']").on('click', function(){
+    var val = $("input[type='text']").val();
+    
+    list.push(val);
+    localStorage.setItem('todolist', JSON.stringify(list));
+    $('#item').val("");
+    putOnPage();
+
+    return false; //event.preventDefault();
+    
+  });
+
+</script>
+</body>
+</html>
