@@ -73,10 +73,11 @@ p {
 	color: #ffffff;
 	background: #0ed2a5;
 	border-radius: 10px;
-	padding: 5px;
+	padding-top: 5px;
 	margin: 0 auto;
 	margin-bottom: 5px;
 	width: 350px;
+	font-size: 24px;
 }
 @media only screen 
     and (min-device-width : 375px) // or 213.4375em or 3in or 9cm
