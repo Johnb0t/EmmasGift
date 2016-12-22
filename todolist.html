@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+<h1>To do List Persisted with Local Storage</h1>
+
+<form>
+  <input type="text">
+  <input type="submit" value="save">
+</form>
+
+<div id="todolist">
+  
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script type="text/javascript">
+  var list = JSON.parse(localStorage.getItem('todolist'));
+  if (!Array.isArray(list)){
+    list = [];
+  }
+
+  function putOnPage(){
+    
+    $('#todolist').empty(); //empties out the html
+
+    var insideList = JSON.parse(localStorage.getItem('todolist'));
+    if (!Array.isArray(insideList)){
+      insideList = [];
+    }
+
+    for (var i=0; i<insideList.length; i++){
+      var p = $('<p>').text(insideList[i]);
+      var b = $('<button>').text('x').attr('data-index', i);
+      p.prepend(b);
+      $('#todolist').prepend(p);
+    }
+  }
+
+  putOnPage();
+
+  $(document).on('click', 'button', function(){
+    var todolist = JSON.parse(localStorage.getItem('todolist'));
+    var currentIndex = $(this).data('index'); 
+    todolist.splice(currentIndex, 1); //deletes the item that I clicked on to delete
+    list = todolist;
+
+    localStorage.setItem('todolist', JSON.stringify(todolist));
+
+    $(this).parent().remove();
+  });
+
+  $("input[type='submit']").on('click', function(){
+    var val = $("input[type='text']").val();
+    
+    list.push(val);
+    localStorage.setItem('todolist', JSON.stringify(list));
+
+    putOnPage();
+
+    return false; //event.preventDefault();
+  });
+
+</script>
+</body>
+</html>
