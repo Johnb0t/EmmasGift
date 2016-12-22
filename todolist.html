@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <meta charset="UTF-8">
+  <title>ToDo List</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<div class="container">
+  <h1>Emma's List</h1>
 
-<h1>To do List Persisted with Local Storage</h1>
+  <form>
+    <input type="text" id="item" placeholder="Add An Item!">
+    <input type="submit" value="Add">
+  </form>
+</div>
 
-<form>
-  <input type="text">
-  <input type="submit" value="save">
-</form>
-
-<div id="todolist">
-  
+<div id="main-container" class="container">
+  <div id="todolist">
 </div>
 
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
@@ -58,10 +63,11 @@
     
     list.push(val);
     localStorage.setItem('todolist', JSON.stringify(list));
-
+    $('#item').val("");
     putOnPage();
 
     return false; //event.preventDefault();
+    
   });
 
 </script>

@@ -1,0 +1,104 @@
+body {
+	background: url("../images/sunflowers.jpg");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+     -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+    font-size: 28px;
+	line-height: 34px;
+	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: bold;
+}
+* {
+	box-sizing: border-box;
+}
+.container {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	clear: both;
+	text-align: center;
+	margin-bottom: 10px;
+}
+h1 {
+	background: #0ed2a5;
+	color: #ffffff;
+	margin: 10px;
+	border-radius: 10px;
+	padding: 10px;
+}
+input[type="text"] {
+  padding: 10px;
+  border: solid 1px #fff;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 2px 0 #707070;
+  transition: box-shadow 0.3s;
+  border-color: #0ed2a5;
+  background: #0ed2a5;
+  font-size: 24px;
+  color:  #ffffff;
+  width: 75%;
+}
+input[type="submit"] {
+	font-size: 28px;
+	text-decoration: none;
+	margin-right: 5px;
+	border: none;
+	background: #0ed2a5;
+	color: #ffffff;
+	border-radius: 10px;
+	padding: 5px;
+	margin-left: 5px;
+}
+::-webkit-input-placeholder {
+	color: #ffffff;
+	font-size: 24px;
+}
+button {
+	font-size: 28px;
+	text-decoration: none;
+	margin-right: 5px;
+	border: none;
+	background: #0ed2a5;
+	color: #ffffff;
+	border-radius: 10px;
+	padding: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	width: 30px;
+}
+p {
+	color: #ffffff;
+	background: #0ed2a5;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 0 auto;
+	margin-bottom: 5px;
+	width: 350px;
+}
+@media only screen 
+    and (min-device-width : 375px) // or 213.4375em or 3in or 9cm
+    and (max-device-width : 667px) // or 41.6875em
+    and (width : 667px) // or 41.6875em
+    and (height : 375px) // or 23.4375em
+    and (orientation : landscape) 
+    and (color : 8)
+    and (device-aspect-ratio : 375/667)
+    and (aspect-ratio : 667/375)
+    and (device-pixel-ratio : 2)
+    and (-webkit-min-device-pixel-ratio : 2)
+{ }
+@media only screen 
+    and (min-device-width : 375px) // or 213.4375em
+    and (max-device-width : 667px) // or 41.6875em
+    and (width : 375px) // or 23.4375em
+    and (height : 559px) // or 34.9375em
+    and (orientation : portrait) 
+    and (color : 8)
+    and (device-aspect-ratio : 375/667)
+    and (aspect-ratio : 375/559)
+    and (device-pixel-ratio : 2)
+    and (-webkit-min-device-pixel-ratio : 2)
+{
