@@ -65,10 +65,9 @@ button {
 	text-decoration: none;
 	margin-right: 5px;
 	border: none;
-	background: #0ed2a5;
+	background: #f5bfe7;
 	color: #ffffff;
 	border-radius: 10px;
-	padding: 5px;
 	margin-left: 5px;
 	margin-bottom: 5px;
 	width: 30px;
@@ -106,4 +105,9 @@ p {
     and (aspect-ratio : 375/559)
     and (device-pixel-ratio : 2)
     and (-webkit-min-device-pixel-ratio : 2)
-{
+{ }
+@media only screen and (max-device-width: 320px) {
+	p {
+		width: 300px;
+	}
+}
